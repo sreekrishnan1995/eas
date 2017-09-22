@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Technical skills:</strong>
+  <%= @appraisal.technical_skills %>
+</p>
+
+<p>
+  <strong>Communication skills:</strong>
+  <%= @appraisal.communication_skills %>
+</p>
+
+<p>
+  <strong>Inter personal skills:</strong>
+  <%= @appraisal.inter_personal_skills %>
+</p>
+
+<p>
+  <strong>Attendance:</strong>
+  <%= @appraisal.attendance %>
+</p>
+
+<p>
+  <strong>Leadership:</strong>
+  <%= @appraisal.leadership %>
+</p>
+
+<p>
+  <strong>Self rating:</strong>
+  <%= @appraisal.self_rating %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @appraisal.employee %>
+</p>
+
+<%= link_to 'Edit', edit_appraisal_path(@appraisal) %> |
+<%= link_to 'Back', appraisals_path %>

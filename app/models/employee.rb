@@ -1,5 +1,5 @@
 class Employee < ApplicationRecord
-  before_save { self.email = email.downcase }
+  before_save { self.emp_id = emp_id.downcase }
 	validates :emp_id,  presence: true, length: { maximum: 21 },
                     uniqueness: { case_sensitive: false }
 	validates :name,  presence: true, length: { maximum: 50 }
