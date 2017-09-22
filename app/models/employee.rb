@@ -6,5 +6,5 @@ class Employee < ApplicationRecord
 
 	has_many :appraisals
 	has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true
 end
