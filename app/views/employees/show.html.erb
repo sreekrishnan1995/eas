@@ -20,5 +20,24 @@
   <%= @employee.superior_id %>
 </p>
 
+    <% if @employee.appraisals.any? %>
+      <h3>Appraisals (<%= @employee.appraisals.count %>)</h3>
+      <ol class="appraisals">
+        <li id="<%= appraisal.id %>">
+  		<%= link_to appraisal.employee, appraisal.employee %>
+		 <span class="user"><%= link_to appraisal.employee.name, appraisal.employee %></span>
+ 		 <span class="content"><%= appraisal.technical_skills %></span>
+ 		 <span class="content"><%= appraisal.communication_skills %></span>
+ 		 <span class="content"><%= appraisal.inter_personal_skills %></span>
+ 		 <span class="content"><%= appraisal.attendance %></span>
+ 		 <span class="content"><%= appraisal.leadership %></span>
+ 		 <span class="content"><%= appraisal.self_rating %></span>
+ 		 <span class="timestamp">
+   		 Posted <%= time_ago_in_words(appraisal.created_at) %> ago.
+  		</span>
+	</li>
+      </ol>
+    <% end %>
+
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>

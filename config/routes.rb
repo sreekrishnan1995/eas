@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :employees do
-    resources :appraisals
-  end
+  resources :employees
+  resources :appraisals, only: [:create, :destroy]
 end

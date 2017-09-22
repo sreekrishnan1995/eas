@@ -4,7 +4,7 @@ class Employee < ApplicationRecord
                     uniqueness: { case_sensitive: false }
 	validates :name,  presence: true, length: { maximum: 50 }
 
-	has_many :appraisals
+	has_many :appraisals, dependent: :destroy
 	has_secure_password
   validates :password, presence: true
 end

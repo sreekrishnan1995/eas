@@ -10,6 +10,8 @@ class EmployeesController < ApplicationController
   # GET /employees/1
   # GET /employees/1.json
   def show
+    @employee = Employee.find(params[:id])
+    @appraisals = @employee.appraisals.paginate(page: params[:page])
   end
 
   # GET /employees/new
@@ -69,6 +71,7 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:emp_id, :name, :designation, :superior_id, :password, :password_confirmation)
+      params.require(:employee).permit(:emp_id, :name, :designation, :superior_id, :password, 
+:password_confirmation)
     end
 end
