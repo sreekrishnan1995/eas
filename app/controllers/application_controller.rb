@@ -60,7 +60,7 @@ def require_login
     end
 
      def require_TM
-      if session[:user_TM]=0
+      if session[:user_TM]==0
       	flash[:danger]="Access Denied!"
           if session[:user_HR]==1
       		redirect_to employees_path
@@ -75,10 +75,9 @@ def require_login
     end
 
  def require_CEO
-      if session[:user_CEO]=0
+      if session[:user_CEO]==0
          flash[:danger]="Access Denied!"
-
-      	if session[:user_HR]==1
+      		if session[:user_HR]==1
       		redirect_to employees_path
       	elsif session[:user_PM]==1
       		redirect_to projectmanager_index_path
@@ -90,3 +89,4 @@ def require_login
        end 
     end
 end
+	
