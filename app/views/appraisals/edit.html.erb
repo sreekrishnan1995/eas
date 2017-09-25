@@ -1,6 +1,53 @@
 <h1>Editing Appraisal</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+<%= form_with(model: @appraisal, local: true) do |form| %>
+  <% if @appraisal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appraisal.errors.count, "error") %> prohibited this appraisal from being saved:</h2>
 
-<%= render 'form', appraisal: @appraisal %>
+      <ul>
+      <% @appraisal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Show', @appraisal %> |
-<%= link_to 'Back', appraisals_path %>
+  <p>
+     <strong>Employee ID:</strong>
+     <%= @appraisal.emp_id  %>
+    </p>
+
+    <%= form.label :attendance %>
+    <%= form.select :attendance,[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], class: 'form-control' %>
+
+    <%= form.label :"Technical Skills"%>
+    <%= form.select :tech_skill,[0,1,2,3,4,5], class: 'form-control' %>
+
+    <%= form.label :"Communication Skills"%>
+    <%= form.select :comm_skill, [0,1,2,3,4,5],class: 'form-control' %>
+
+    <%= form.label :"Interpersonal Skills"%>
+    <%= form.select :inter_skill, [0,1,2,3,4,5],class: 'form-control' %>
+
+    <%= form.label :"Decision Making" %>
+    <%= form.select :decs_making, [0,1,2,3,4,5],class: 'form-control' %>
+
+    <%= form.label :"Leadership Skills" %>
+    <%= form.select :lead_skill, [0,1,2,3,4,5],class: 'form-control' %>
+
+    <%= form.label :"Self Rating" %>
+    <%= form.select :rating,[0,1,2,3,4,5,6,7,8,9,10], class: 'form-control' %>
+
+   <div class="field">
+    <%= form.label :verified %>
+    <%= form.check_box :verified, id: :appraisal_verified %>
+  </div>
+
+    <%= form.submit "Submit", class: "btn btn-primary" %>
+
+<% end %>
+</div>
+</div>
+

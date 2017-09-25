@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 <%= form_with(model: employee, local: true) do |form| %>
   <% if employee.errors.any? %>
     <div id="error_explanation">
@@ -11,37 +13,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :emp_id %>
-    <%= form.text_field :emp_id, id: :employee_emp_id %>
-  </div>
 
-  <div class="field">
+  
+    <%= form.label :"Employee id" %>
+    <%= form.text_field :emp_id, class: 'form-control' %>
+
     <%= form.label :name %>
-    <%= form.text_field :name, id: :employee_name %>
-  </div>
+    <%= form.text_field :name, class: 'form-control' %>
 
-  <div class="field">
     <%= form.label :designation %>
-    <%= form.text_field :designation, id: :employee_designation %>
-  </div>
+    <%= form.select :designation, ['CEO', 'HR','Project Manager','Team Leader','Team Member'], class: 'form-control'%>
+    
 
-  <div class="field">
-    <%= form.label :superior_id %>
-    <%= form.text_field :superior_id, id: :employee_superior_id %>
-  </div>
+    <%= form.label :"Superior id" %>
+    <%= form.text_field :superior_id, class: 'form-control' %>
 
-  <div class="field">
+  
       <%= form.label :password %>
-      <%= form.password_field :password, id: :employee_password_digest %>
-  </div>
+      <%= form.password_field :password, class: 'form-control' %>
 
-  <div class="field">
+  
       <%= form.label :password_confirmation, "Confirmation" %>
-      <%= form.password_field :password_confirmation, id: :employee_password_digest %>
-  </div>
+      <%= form.password_field :password_confirmation, class: 'form-control' %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.submit "submit", class: "btn btn-primary" %>
+
 <% end %>
+</div>
+</div>

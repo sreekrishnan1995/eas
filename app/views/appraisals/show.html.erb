@@ -1,39 +1,24 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Technical skills:</strong>
-  <%= @appraisal.technical_skills %>
-</p>
 
-<p>
-  <strong>Communication skills:</strong>
-  <%= @appraisal.communication_skills %>
-</p>
 
-<p>
-  <strong>Inter personal skills:</strong>
-  <%= @appraisal.inter_personal_skills %>
-</p>
+<table>
+  <tr>
+    <th>Emp ID</th>
+    <th>Rating</th>
+    <th colspan="2"></th>
+  </tr>
+ <p><p><p><p>
+  <% @appraisal.each do |appraisal| %>
+    <tr>
+      <td><%= appraisal.emp_id %></td>
+      <td><%= appraisal.rating %></td>
+    
+      <td><%= link_to 'Verify', edit_appraisal_path(appraisal) %></td>
+    
+    </tr>
+    <p><p><p><p>
+  <% end %>
+</table>
 
-<p>
-  <strong>Attendance:</strong>
-  <%= @appraisal.attendance %>
-</p>
 
-<p>
-  <strong>Leadership:</strong>
-  <%= @appraisal.leadership %>
-</p>
-
-<p>
-  <strong>Self rating:</strong>
-  <%= @appraisal.self_rating %>
-</p>
-
-<p>
-  <strong>Employee:</strong>
-  <%= @appraisal.employee %>
-</p>
-
-<%= link_to 'Edit', edit_appraisal_path(@appraisal) %> |
 <%= link_to 'Back', appraisals_path %>

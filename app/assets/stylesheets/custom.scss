@@ -4,11 +4,14 @@
 /* universal */
 
 body {
+
   padding-top: 60px;
 }
 
 section {
   overflow: auto;
+  background-color:#00000f33;
+
 }
 
 textarea {
@@ -21,6 +24,51 @@ textarea {
 
 .center h1 {
   margin-bottom: 10px;
+}
+
+$gray-medium-light: #eaeaea;
+
+
+th{
+  padding: 10px;
+}
+
+t{
+  padding: 10px;
+  font: 16px sans-serif;
+
+}
+
+z{
+  font: 16px sans-serif;
+  font-decoration: underline;
+  color: red;
+
+}
+
+z:hover{
+font: 18px sans-serif;
+  color: hotpink;
+}
+
+a:link, a:visited {
+  font: 15px sans-serif;
+    padding: 8px 15px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover {
+    color: hotpink;
+}
+
+#tab
+{
+  height:auto;
+  border:1px solid;
+  padding:10px;
+
 }
 
 /* typography */
@@ -46,8 +94,19 @@ h2 {
 }
 
 p {
-  font-size: 1.1em;
-  line-height: 1.7em;
+  border: 1px solid powderblue;
+  padding: 10px;
+}
+
+strong{
+  font: 18px bold sans-serif;
+  color:#102f60;
+}
+
+.jumbotron{
+margin-top:50px;
+background-color:transparent;
+color:black;
 }
 
 /* header */
@@ -97,4 +156,59 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 15px;
+}
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#content1
+{
+height:auto;
+//width:980px;
+background-color:#00000f33;
+margin-top:0px;
+border:1px solid #c4b4b4;
+border-radius:2px;
+padding:50px;
+text-align:centre;
+
+}
+#content2
+{
+//height:auto;
+//width:980px;
+background-color:#00000f33;
+margin-top:0px;
+border:1px solid #c4b4b4;
+border-radius:2px;
+//padding:50px;
+//text-align:centre;
+color:#ffffff;
+
 }

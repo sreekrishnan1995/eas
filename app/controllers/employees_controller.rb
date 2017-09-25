@@ -1,5 +1,5 @@
-class EmployeesController < ApplicationController
-  before_action :set_employee, only: [:show, :edit, :update, :destroy]
+  class EmployeesController < ApplicationController
+  before_action  :require_login, :require_HR
 
   # GET /employees
   # GET /employees.json
@@ -14,13 +14,45 @@ class EmployeesController < ApplicationController
     @appraisals = @employee.appraisals.paginate(page: params[:page])
   end
 
+  def sele
+    @employees = Employee.where(:superior_id => session[:user_id]).pluck(:emp_id)
+    @appraisal=Appraisal.where(["emp_id in (?) and verified = ?",@employees,"f"])
+  end
+
+  def select
+    @employees = Employee.where(["designation != ? and designation != ?","CEO","HR"])
+  end
+  def view
+    @employees = Employee.where(["designation != ? and designation != ?","CEO","HR"])
+  end
+
+  def succ
+  end
+
   # GET /employees/new
   def new
     @employee = Employee.new
   end
 
+  def evaluate
+    @appraisal = Appraisal.where(["verified = ? and evaluated = ?",'t','f'])
+    @count=0
+      @appraisal.each do |appraisal|
+        appraisal.update_attribute(:evaluated,'t')
+        @score=(appraisal.attendance / 3 )+appraisal.tech_skill+appraisal.comm_skill+appraisal.inter_skill+appraisal.decs_making+appraisal.lead_skill
+        @score=@score/3
+        @employee=Employee.find_by( emp_id: appraisal.emp_id)
+        if @employee
+          @employee.update_attribute(:curr_rating, @score)
+          @count=@count+1
+        end
+    end
+  end
+
+
   # GET /employees/1/edit
   def edit
+        @employee = Employee.find(params[:id])
   end
 
   # POST /employees
@@ -30,7 +62,7 @@ class EmployeesController < ApplicationController
 
     respond_to do |format|
       if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
+        format.html { redirect_to employees_succ_path}
         format.json { render :show, status: :created, location: @employee }
       else
         format.html { render :new }
@@ -42,9 +74,11 @@ class EmployeesController < ApplicationController
   # PATCH/PUT /employees/1
   # PATCH/PUT /employees/1.json
   def update
+        @employee = Employee.find(params[:id])
+
     respond_to do |format|
       if @employee.update(employee_params)
-        format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
+        format.html { redirect_to employees_path, notice: 'Employee was successfully updated.' }
         format.json { render :show, status: :ok, location: @employee }
       else
         format.html { render :edit }
@@ -58,7 +92,7 @@ class EmployeesController < ApplicationController
   def destroy
     @employee.destroy
     respond_to do |format|
-      format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
+      format.html { redirect_to employees_succ_path}
       format.json { head :no_content }
     end
   end

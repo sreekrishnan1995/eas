@@ -4,7 +4,13 @@ class Employee < ApplicationRecord
                     uniqueness: { case_sensitive: false }
 	validates :name,  presence: true, length: { maximum: 50 }
 
-	has_many :appraisals, dependent: :destroy
+	
 	has_secure_password
-  validates :password, presence: true
+  validates :password, presence: true, length: { minimum: 1 }
+
+  def Employee.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 end

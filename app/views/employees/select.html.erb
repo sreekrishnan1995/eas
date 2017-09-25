@@ -1,0 +1,53 @@
+  <!DOCTYPE html>
+<html>
+<head>
+  <title>EAS</title>
+</head>
+<body>
+
+
+
+
+<h1>Employees</h1>
+<div id="content1">
+
+<table>
+  
+  <thead>
+     
+    <tr>
+     <th><h3>Employee ID</h3></th>
+      <th><h3>Name</h3></th>
+      <th><h3>Designation</h3></th>
+      <th><h3>Superior ID</h3></th>
+      <th><h3>Rating(10)</h3></th>
+      <th colspan="2"></th></th>
+    </tr>
+
+  </thead>
+
+
+
+  <tbody>
+    <% @employees.each do |employee| %>
+
+      <tr>
+        <td><t><%= employee.emp_id %></t></td>
+        <td><t><%= employee.name %></t></td>
+        <td><t><%= employee.designation %></t></td>
+        <td><t><%= employee.superior_id %></t></td>
+        <td><t><%= employee.curr_rating %></t></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee)%></td>
+        <td><%= link_to 'Remove employee', employee, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', employees_path %>
+</div>
+</body>
+</html>

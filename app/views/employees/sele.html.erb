@@ -1,0 +1,38 @@
+   <!DOCTYPE html>
+<html>
+<head>
+  <title>EAS</title>
+</head>
+<body>
+
+
+<div id="content1">
+
+<table>
+  <thead>
+  <tr>
+    <th><h3>ID</h3></th>
+    <th><h3>Self rating</h3></th>
+    <th colspan="2"></th>
+  </tr>
+</thead>
+<tbody>
+  <% @appraisal.each do |appraisal| %>
+    <tr>
+      <td><t><%= appraisal.emp_id %></t></td>
+      <td><t><%= appraisal.rating %></t></td>
+    
+      <td><t><%= link_to 'Verify', edit_appraisal_path(appraisal) %></t></td>
+    
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+<br>
+<%= link_to 'Back', employees_path %>
+
+</div>
+</body>
+</html>
+

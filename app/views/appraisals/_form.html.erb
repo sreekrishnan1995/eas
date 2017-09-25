@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 <%= form_with(model: appraisal, local: true) do |form| %>
   <% if appraisal.errors.any? %>
     <div id="error_explanation">
@@ -11,42 +13,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :technical_skills %>
-    <%= form.text_field :technical_skills, id: :appraisal_technical_skills %>
-  </div>
+    <p>
+     <strong>Employee ID:</strong>
+     <%= appraisal.emp_id  %>
+    </p>
 
-  <div class="field">
-    <%= form.label :communication_skills %>
-    <%= form.text_field :communication_skills, id: :appraisal_communication_skills %>
-  </div>
-
-  <div class="field">
-    <%= form.label :inter_personal_skills %>
-    <%= form.text_field :inter_personal_skills, id: :appraisal_inter_personal_skills %>
-  </div>
-
-  <div class="field">
     <%= form.label :attendance %>
-    <%= form.number_field :attendance, id: :appraisal_attendance %>
-  </div>
+    <%= form.select :attendance,[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], class: 'form-control' %>
 
-  <div class="field">
-    <%= form.label :leadership %>
-    <%= form.text_field :leadership, id: :appraisal_leadership %>
-  </div>
+    <%= form.label :"Technical Skills"%>
+    <%= form.select :tech_skill,[0,1,2,3,4,5], class: 'form-control' %>
 
-  <div class="field">
-    <%= form.label :self_rating %>
-    <%= form.number_field :self_rating, id: :appraisal_self_rating %>
-  </div>
+    <%= form.label :"Communication Skills"%>
+    <%= form.select :comm_skill, [0,1,2,3,4,5],class: 'form-control' %>
 
-  <div class="field">
-    <%= form.label :employee_id %>
-    <%= form.text_field :employee_id, id: :appraisal_employee_id %>
-  </div>
+    <%= form.label :"Interpersonal Skills"%>
+    <%= form.select :inter_skill, [0,1,2,3,4,5],class: 'form-control' %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.label :"Decision Making" %>
+    <%= form.select :decs_making, [0,1,2,3,4,5],class: 'form-control' %>
+
+    <%= form.label :"Leadership Skills" %>
+    <%= form.select :lead_skill, [0,1,2,3,4,5],class: 'form-control' %>
+
+    <%= form.label :"Self Rating" %>
+    <%= form.select :rating,[0,1,2,3,4,5,6,7,8,9,10], class: 'form-control' %>
+
+    <%= form.submit "Submit", class: "btn btn-primary" %>
 <% end %>
+</div>
+</div>

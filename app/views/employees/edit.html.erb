@@ -1,6 +1,48 @@
 <h1>Editing Employee</h1>
 
-<%= render 'form', employee: @employee %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+<%= form_with(model: @employee, local: true) do |form| %>
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
 
-<%= link_to 'Show', @employee %> |
+      <ul>
+      <% @employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  
+    <%= form.label :"Employee id" %>
+    <%= form.text_field :emp_id, class: 'form-control' %>
+
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+
+    <%= form.label :designation %>
+    <%= form.select :designation, ['CEO', 'HR','Project Manager','Team Leader','Team Member'], class: 'form-control'%>
+    
+
+    <%= form.label :"Superior id" %>
+    <%= form.text_field :superior_id, class: 'form-control' %>
+
+  
+      <%= form.label :password %>
+      <%= form.password_field :password, class: 'form-control' %>
+
+  
+      <%= form.label :password_confirmation, "Confirmation" %>
+      <%= form.password_field :password_confirmation, class: 'form-control' %>
+
+    <%= form.submit "submit", class: "btn btn-primary" %>
+
+<% end %>
+</div>
+</div>
+
+
 <%= link_to 'Back', employees_path %>

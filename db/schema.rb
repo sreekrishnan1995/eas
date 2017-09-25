@@ -10,22 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170922072130) do
+ActiveRecord::Schema.define(version: 20170923210319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "appraisals", force: :cascade do |t|
-    t.string "technical_skills"
-    t.string "communication_skills"
-    t.string "inter_personal_skills"
+    t.string "emp_id"
     t.integer "attendance"
-    t.string "leadership"
-    t.integer "self_rating"
-    t.bigint "employee_id"
+    t.integer "comm_skill"
+    t.integer "tech_skill"
+    t.integer "inter_skill"
+    t.integer "decs_making"
+    t.integer "lead_skill"
+    t.boolean "verified", default: false
+    t.decimal "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["employee_id"], name: "index_appraisals_on_employee_id"
+    t.boolean "evaluated", default: false
+    t.index ["emp_id"], name: "index_appraisals_on_emp_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -33,11 +36,16 @@ ActiveRecord::Schema.define(version: 20170922072130) do
     t.string "name"
     t.string "designation"
     t.string "superior_id"
+    t.decimal "curr_rating", default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.index ["emp_id"], name: "index_employees_on_emp_id", unique: true
   end
 
-  add_foreign_key "appraisals", "employees"
+  create_table "students", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
