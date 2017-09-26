@@ -1,6 +1,11 @@
 class SessionsController < ApplicationController
 
   def new
+    session[:user_CEO]=0
+    session[:user_HR]=0
+    session[:user_PM]=0
+    session[:user_TM]=0
+    session[:user_TL]=0
   end
 
   def create
