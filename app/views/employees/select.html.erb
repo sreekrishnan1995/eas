@@ -5,12 +5,17 @@
 </head>
 <body>
 
-
-
+<style>
+   a:link, a:visited
+{
+color:#b76c6c;
+}
+</style>
 
 <h1>Employees</h1>
 <div id="content1">
 
+<center>
 <table>
   
   <thead>
@@ -21,7 +26,9 @@
       <th><h3>Designation</h3></th>
       <th><h3>Superior ID</h3></th>
       <th><h3>Rating(10)</h3></th>
-      <th colspan="2"></th></th>
+      <th><h3></h3></th>
+      <th><h3></h3></th>
+
     </tr>
 
   </thead>
@@ -29,25 +36,41 @@
 
 
   <tbody>
+    <% @counter = 0 %>
     <% @employees.each do |employee| %>
-
+    <% if @counter%2 == 0 %>
       <tr>
-        <td><t><%= employee.emp_id %></t></td>
-        <td><t><%= employee.name %></t></td>
-        <td><t><%= employee.designation %></t></td>
-        <td><t><%= employee.superior_id %></t></td>
-        <td><t><%= employee.curr_rating %></t></td>
-        <td><%= link_to 'Edit', edit_employee_path(employee)%></td>
-        <td><%= link_to 'Remove employee', employee, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
+        <td class="td1"><t><%= employee.emp_id %></t></td>
+        <td class="td1"><t><%= employee.name %></t></td>
+        <td class="td1"><t><%= employee.designation %></t></td>
+        <td class="td1"><t><%= employee.superior_id %></t></td>
+        <td class="td1"><t><%= employee.curr_rating %></t></td>
+        <td class="td1"><t><%= link_to 'Edit', edit_employee_path(employee)%></t></td>
+        <td class="td1"><t><%= link_to 'Remove employee', employee, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </t></td>
       </tr>
+      <% @counter = @counter + 1 %>
+    <% else %>
+    <tr>
+        <td class="td2"><t><%= employee.emp_id %></t></td>
+        <td class="td2"><t><%= employee.name %></t></td>
+        <td class="td2"><t><%= employee.designation %></t></td>
+        <td class="td2"><t><%= employee.superior_id %></t></td>
+        <td class="td2"><t><%= employee.curr_rating %></t></td>
+        <td class="td2"><t><%= link_to 'Edit', edit_employee_path(employee)%></t></td>
+        <td class="td2"><t><%= link_to 'Remove employee', employee, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </t></td>
+      </tr>
+      <% @counter = @counter + 1 %>
+    <% end %>
     <% end %>
   </tbody>
 </table>
-
+</center>
 <br>
 
 <%= link_to 'Back', employees_path %>
 </div>
 </body>
 </html>
+

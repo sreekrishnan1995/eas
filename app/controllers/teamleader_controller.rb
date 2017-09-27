@@ -6,6 +6,9 @@ def view
     @employees = Employee.where(["superior_id = ?",session[:user_id]])
   end
   def index
+
+    @sup = Employee.where(:emp_id => session[:sup_id])
+    @team = Employee.where(:superior_id =>session[:user_id])
   	
   end
   def myview

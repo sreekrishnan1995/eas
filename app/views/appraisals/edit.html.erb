@@ -1,3 +1,12 @@
+<style>
+a:link, a:visited
+{
+color:#b76c6c;
+}
+</style>
+
+<%= link_to 'Back', :back %>
+
 <h1>Editing Appraisal</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -15,31 +24,30 @@
   <% end %>
 
   <p>
-     <strong>Employee ID:</strong>
+     <strong style="color:#c9d6ea;">Employee ID:</strong>
      <%= @appraisal.emp_id  %>
     </p>
 
     <%= form.label :attendance %>
-    <%= form.select :attendance,[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], class: 'form-control' %>
+    <k style="color:rgb(21, 49, 94);"><%= form.select :attendance,[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], class: 'form-control' %></k>
 
     <%= form.label :"Technical Skills"%>
-    <%= form.select :tech_skill,[0,1,2,3,4,5], class: 'form-control' %>
+    <k style="color:rgb(21, 49, 94);"><%= form.select :tech_skill,[0,1,2,3,4,5], class: 'form-control' %></k>
 
     <%= form.label :"Communication Skills"%>
-    <%= form.select :comm_skill, [0,1,2,3,4,5],class: 'form-control' %>
+    <k style="color:rgb(21, 49, 94);"><%= form.select :comm_skill, [0,1,2,3,4,5],class: 'form-control' %></k>
 
     <%= form.label :"Interpersonal Skills"%>
-    <%= form.select :inter_skill, [0,1,2,3,4,5],class: 'form-control' %>
+    <k style="color:rgb(21, 49, 94);"><%= form.select :inter_skill, [0,1,2,3,4,5],class: 'form-control' %></k>
 
     <%= form.label :"Decision Making" %>
-    <%= form.select :decs_making, [0,1,2,3,4,5],class: 'form-control' %>
+    <k style="color:rgb(21, 49, 94);"><%= form.select :decs_making, [0,1,2,3,4,5],class: 'form-control' %></k>
 
     <%= form.label :"Leadership Skills" %>
-    <%= form.select :lead_skill, [0,1,2,3,4,5],class: 'form-control' %>
+    <k style="color:rgb(21, 49, 94);"><%= form.select :lead_skill, [0,1,2,3,4,5],class: 'form-control' %></k>
 
     <%= form.label :"Self Rating" %>
-    <%= form.select :rating,[0,1,2,3,4,5,6,7,8,9,10], class: 'form-control' %>
-
+    <k style="color:rgb(21, 49, 94);"><%= form.select :rating,[0,1,2,3,4,5,6,7,8,9,10], class: 'form-control' %></k>
    <div class="field">
     <%= form.label :verified %>
     <%= form.check_box :verified, id: :appraisal_verified %>

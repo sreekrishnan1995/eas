@@ -6,6 +6,8 @@
 body {
 
   padding-top: 60px;
+background-image:url('home1.jpg');
+background-size:cover;
 }
 
 section {
@@ -31,6 +33,7 @@ $gray-medium-light: #eaeaea;
 
 th{
   padding: 10px;
+  background-color:#cec2c6;
 }
 
 t{
@@ -53,6 +56,7 @@ font: 18px sans-serif;
 
 a:link, a:visited {
   font: 15px sans-serif;
+  color:white;
     padding: 8px 15px;
     text-align: center; 
     text-decoration: none;
@@ -105,8 +109,8 @@ strong{
 
 .jumbotron{
 margin-top:50px;
-background-color:transparent;
-color:black;
+background-color:rgba(21, 49, 94,.85);
+color:white;
 }
 
 /* header */
@@ -197,7 +201,7 @@ border:1px solid #c4b4b4;
 border-radius:2px;
 padding:50px;
 text-align:centre;
-
+box-shadow: 0px 0px 20px black;
 }
 #content2
 {
@@ -210,5 +214,68 @@ border-radius:2px;
 //padding:50px;
 //text-align:centre;
 color:#ffffff;
+
+}
+
+table{
+  
+  border-collapse: collapse;
+  border-style:solid;
+  border-color:none;
+}
+
+td
+{
+  
+}
+
+.td1{
+  background-color:rgba(192, 224, 232,.9);
+  padding: 10px;
+}
+
+.td2{
+  background-color:white;
+  padding: 10px;
+}
+
+
+p1 {
+  border: 1px solid powderblue;
+  padding: 10px;
+//background-color:red;
+}
+
+
+
+
+
+
+
+.row {
+  margin-bottom: 1rem;
+}
+.row .row {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+[class*="col-md-4"] {
+  color:white;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #c4b4b4;
+  border: 1px solid #15315e;
+    border-radius:2px;
+
+}
+
+[class*="col-md-6"] {
+  font: 15px sans-serif;
+  color:#c9d6ea;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: rgba(21, 49, 94,.7);
+  border: 1px solid #15315e;
+    border-radius:2px;
 
 }

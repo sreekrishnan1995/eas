@@ -12,8 +12,8 @@
       </ul>
     </div>
   <% end %>
-
-
+<div id="content1">
+<table>
   
     <%= form.label :"Employee id" %>
     <%= form.text_field :emp_id, class: 'form-control' %>
@@ -22,7 +22,7 @@
     <%= form.text_field :name, class: 'form-control' %>
 
     <%= form.label :designation %>
-    <%= form.select :designation, ['CEO', 'HR','Project Manager','Team Leader','Team Member'], class: 'form-control'%>
+    <k style="color:rgb(21, 49, 94);"><%= form.select :designation, ['Project Manager','Team Leader','Team Member'], class: 'form-control'%></k>
     
 
     <%= form.label :"Superior id" %>
@@ -33,10 +33,12 @@
       <%= form.password_field :password, class: 'form-control' %>
 
   
-      <%= form.label :password_confirmation, "Confirmation" %>
+      <%= form.label :password_confirmation, "Confirm Password" %>
       <%= form.password_field :password_confirmation, class: 'form-control' %>
 
     <%= form.submit "submit", class: "btn btn-primary" %>
+
+    </table>
 
 <% end %>
 </div>

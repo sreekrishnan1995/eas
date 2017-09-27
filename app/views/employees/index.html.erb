@@ -1,10 +1,51 @@
+<head>
+<style>
+#content8
+{
+height:auto;
+width:580px;
+background-color:rgba(21, 49, 94,.85);
+margin-top:0px;
+border:3px solid #c4b4b4;
+border-radius:2px;
+padding:40px;
+text-align:left;
+box-shadow:10px 10px 10px #15315e;
+}
 
-<%= link_to 'Add Employee', new_employee_path %>
+ a:link, a:visited
+{
+font-size:20px;
+color:#ffffff;
+}
+#wrap
+{
+background-image:url('home.jpg');
+height:800px;
+width:auto;
+}
+
+</style>
+</head>
+<body>
+<div id="wrap">
+<MARQUEE LOOP=1 SCROLLAMOUNT=300 DIRECTION=LEFT BEHAVIOR=SLIDE >
+   
+<center>
+
+<div id="content8">
+   
+<p><%= link_to 'Add Employee', new_employee_path %></p>
 <br>
-<%= link_to 'Update/Remove Employee', 'employees/select' %>
+<p><%= link_to 'Update/Remove Employee', 'employees/select' %></p>
 <br>
-<%= link_to 'Verify Details', 'employees/sele' %>
+<p><%= link_to 'Verify Details', 'employees/sele' %></p>
 <br>
-<%= link_to 'Evaluate performance', 'employees/evaluate' %>
+<p><%= link_to 'Evaluate performance', 'employees/evaluate' %></p>
     <br>         	
-<%= link_to 'View performance of employees', 'employees/view' %>
+<p><%= link_to 'View performance of employees', 'employees/view' %></p>
+</div>
+</center>
+</MARQUEE>
+</div>
+</body>

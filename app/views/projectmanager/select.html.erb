@@ -5,9 +5,16 @@
 </head>
 <body>
 
+  <style>
+   a:link, a:visited
+{
+color:#b76c6c;
+}
+</style>
 
+<center>
 <div id="content1">
-
+<% if @appraisal.count!= 0%>
 <table>
   <thead>
   <tr>
@@ -17,19 +24,31 @@
   </tr>
 </thead>
 <tbody>
+  <% @counter = 0 %>
   <% @appraisal.each do |appraisal| %>
+    <% if @counter%2 == 0 %>
     <tr>
-      <td><t><%= appraisal.emp_id %></t></td>
-      <td><t><%= appraisal.rating %></t></td>
-    
-      <td><t><%= link_to 'Verify', edit_appraisal_path(appraisal) %></t></td>
-    
+      <td class="td1"><t><%= appraisal.emp_id %></t></td>
+      <td class="td1"><t><%= appraisal.rating %></t></td>
+      <td class="td1"><t><%= link_to 'Verify', edit_appraisal_path(appraisal) %></t></td>
     </tr>
+<% @counter = @counter + 1 %>
+    <% else %>
+    <tr>
+      <td class="td2"><t><%= appraisal.emp_id %></t></td>
+      <td class="td2"><t><%= appraisal.rating %></t></td>
+      <td class="td2"><t><%= link_to 'Verify', edit_appraisal_path(appraisal) %></t></td>
+    </tr>
+    <% @counter = @counter + 1 %>
+    <% end %>
   <% end %>
 </tbody>
 </table>
-
+<% else %>
+<h4><p style="color:#c9d6ea;font-size: 20px; font-weight: bold;">No new appraisals!</p></h4>
+<% end %>
 <br>
+</center>
 <%= link_to 'Back', projectmanager_index_path %>
 
 </div>

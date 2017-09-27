@@ -4,7 +4,8 @@ module SessionsHelper
     session[:employee_id] = employee.id
     session[:user_id] = employee.emp_id
     session[:user_desig] = employee.designation
-	@user=employee.designation
+	  @user=employee.designation
+    session[:sup_id] = employee.superior_id
   end
 
   def current_employee

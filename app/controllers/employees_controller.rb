@@ -20,10 +20,10 @@
   end
 
   def select
-    @employees = Employee.where(["designation != ? and designation != ?","CEO","HR"])
+    @employees = Employee.where(["designation != ? and designation != ?","CEO","HR"]).order("designation ASC")
   end
   def view
-    @employees = Employee.where(["designation != ? and designation != ?","CEO","HR"])
+    @employees = Employee.where(["designation != ? and designation != ?","CEO","HR"]).order("designation ASC")
   end
 
   def succ
@@ -42,7 +42,16 @@
         @score=(appraisal.attendance / 3 )+appraisal.tech_skill+appraisal.comm_skill+appraisal.inter_skill+appraisal.decs_making+appraisal.lead_skill
         @score=@score/3
         @employee=Employee.find_by( emp_id: appraisal.emp_id)
+        appraisal.update_attribute(:rating,@score)
+        @score=0
+        @s=0
         if @employee
+          @appraisal1=Appraisal.where(emp_id: @employee.emp_id)
+          @appraisal1.each do |appraisal1|
+            @score=@score+appraisal1.rating
+            @s=@s+1
+          end
+          @score=@score / @s
           @employee.update_attribute(:curr_rating, @score)
           @count=@count+1
         end
@@ -90,6 +99,7 @@
   # DELETE /employees/1
   # DELETE /employees/1.json
   def destroy
+    @employee = Employee.find(params[:id])
     @employee.destroy
     respond_to do |format|
       format.html { redirect_to employees_succ_path}

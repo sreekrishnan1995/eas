@@ -1,3 +1,46 @@
+<head>
+<style>
+#content8
+{
+height:auto;
+width:580px;
+background-color:rgba(21, 49, 94,.85);
+margin-top:0px;
+border:3px solid #c4b4b4;
+border-radius:2px;
+padding:40px;
+text-align:left;
+box-shadow:10px 10px 10px #15315e;
+}
+
+ a:link, a:visited
+{
+font-size:20px;
+color:#ffffff;
+}
+
+#k{
+  font:bold;
+  color:#15315e;
+  background-color:rgba(196, 180, 180, .85);
+}
+
+</style>
+</head>
+
+
+
+
+ 
+
+<body>
+
+<MARQUEE LOOP=1 SCROLLAMOUNT=300 DIRECTION=LEFT BEHAVIOR=SLIDE >
+   
+<center>
+
+<div id="content8">
+
 <%= link_to 'Fill Appraisal form', new_appraisal_path %>
 <br>
 <%= link_to 'Verify Details', 'select' %>
@@ -5,3 +48,45 @@
 <%= link_to 'View Project member\'s Performance', 'view' %>
 <br>
 <%= link_to 'My Performance', 'myview' %>
+
+</div>
+
+</center>
+
+</MARQUEE>
+
+</body>
+
+
+<br><br><br> 
+
+<div class="container">
+        <div class="col-md-4" id="k"><td><t>HR :</t></td></div>
+        <div class="col-md-4" id="k"><td><t><%= @sup[0].emp_id%></t></td></div>
+        <div class="col-md-4" id="k"><td><t><%= @sup[0].name %></t></td></div>
+</div>
+<tbody>
+  <% @counter = 0 %>
+
+<% @team.each do |t| %>
+
+      <tr>
+      <div class="container">
+        <div class="col-md-4" id="k"><td><t>Team Leader <%= @counter+1 %> :</t></td></div>
+        <div class="col-md-4" id="k"><td><t><%= t.emp_id %></t></td></div>
+        <div class="col-md-4" id="k"><td><t><%= t.name %></t></td></div>
+      </div>
+    
+    <% @teaml[@counter].each do |t1| %>
+      <div class="container">
+        <div class="col-md-4" id="k"><td><t>Team Member :</t></td></div>
+        <div class="col-md-4" id="k"><td><t><%= t1.emp_id %></t></td></div>
+        <div class="col-md-4" id="k"><td><t><%= t1.name %></t></td></div>
+      </div>
+    <% end %>        
+     
+         </tr>
+        
+         <% @counter = @counter+1 %>
+    <% end %>
+  </tbody>

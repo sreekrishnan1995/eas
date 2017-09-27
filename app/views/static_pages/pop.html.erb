@@ -1,0 +1,58 @@
+<style>
+a:link, a:visited
+{
+color:#b76c6c;
+}
+</style>
+
+
+
+
+
+
+
+<!-- Bootstrap core CSS -->
+    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+<% @employees.each do |emp| %>
+
+<div class = "container">
+	 <h3 style="color:#b76c6c">Profile</h3>
+	 <div class="row" >
+        <div class="col-md-4">
+        	<strong>Employee-id</strong>
+    	</div>
+        <div class="col-md-4">
+        	<strong><%= emp.emp_id %></strong>
+        </div>
+      </div> 
+</div>
+<div class = "container">
+
+	  <div class="row" >
+        <div class="col-md-4">
+        	<strong>Name</strong>
+    	</div>
+       <div class="col-md-4">
+        	<strong><%= emp.name %></strong>
+       </div>
+      </div>
+     </div>
+
+	  
+
+	  <div class = "container">
+
+	  <div class="row" >
+        <div class="col-md-4">
+        	<strong>Designation</strong>
+    	</div>
+        <div class="col-md-4">
+        	<strong><%= emp.designation %></strong>
+        </div>
+      </div>
+     </div>
+
+
+
+<%= link_to "Back" , :back%>
+<% end %>

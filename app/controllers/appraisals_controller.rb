@@ -6,12 +6,12 @@ before_action :require_login
     if @appraisal1
       @appraisal1=Date.parse(@appraisal1.to_s)
       @s=Date.today
-      if ( @s- @appraisal1).to_i > 15
+      if ( @s- @appraisal1).to_i >15
         @appraisal = Appraisal.new
         @appraisal.emp_id=session[:user_id]
       else
       flash[:danger] = "#{15-(@s - @appraisal1).to_i} days remaining for next appraisal"
-      end
+      
       if session[:user_desig]=="HR"
         redirect_to employees_path
       elsif session[:user_desig]=="Project Manager"
@@ -20,6 +20,7 @@ before_action :require_login
         redirect_to teamleader_index_path
       else
         redirect_to teammember_index_path
+      end
       end
     else
         @appraisal = Appraisal.new
